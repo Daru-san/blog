@@ -24,9 +24,9 @@ paginate: 5
 paginate_path: '/baseurl/page:num/'
 nav:
   - title: Blog
-    url: /archive
+    url: /blog/archive
   - title: About
-    url: /about
+    url: /blog/about
 exclude:
   - .editorconfig
   - .git

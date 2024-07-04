@@ -1,6 +1,6 @@
 title: 'Sandaru'
 description: 'My personal blog'
-baseurl: ''
+baseurl: '/blog'
 url: 'https://daru-san.github.io/blog'
 version: 1.0.0
 # Google Analytics
@@ -21,6 +21,7 @@ plugins:
   - jekyll-seo-tag
 permalink: /:year-:month-:day/:title
 paginate: 5
+paginate_path: '/baseurl/page:num/'
 nav:
   - title: Blog
     url: /archive

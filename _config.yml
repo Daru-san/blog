@@ -2,18 +2,18 @@ title: 'Sandaru'
 description: 'My personal blog'
 baseurl: ''
 url: 'https://daru-san.github.io'
+version: 1.0.0
 # Google Analytics
 google_analytics: UA—XXXXXXXX-X
+# Author
 author:
   name: Darryl
   url: https://git.sr.ht/~darumaka
   email: mica.tui@proton.me
 markdown: kramdown
-include:
-  - _pages
 sass:
   sass_dir: _sass
-  style: compressed
+  style: :compressed
 # Gems
 plugins:
   - jekyll-feed
@@ -21,10 +21,16 @@ plugins:
   - jekyll-seo-tag
 permalink: /:year-:month-:day/:title
 paginate: 5
-exclude: [Gemfile, Gemfile.lock]
 nav:
   - title: Blog
     url: /archive
   - title: About
     url: /about
-
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md

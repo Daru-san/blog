@@ -13,22 +13,45 @@
   }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {inherit system;};
-      src = ./.;
+      inherit (nixpkgs) lib;
+      gem = {
+        src = ./.;
+        deps = with pkgs; [
+          ruby
+          jekyll
+          bundler
+          bundix
+          rubyPackages.jekyll-sitemap
+        ];
+      };
     in {
       devShells.default = pkgs.mkShell {
-        buildInputs = with pkgs; [ruby jekyll bundler bundix rubyPackages.jekyll-sitemap];
+        buildInputs = lib.flatten [
+          gem.deps
+          self.packages.${system}.launch
+        ];
       };
-      packages.default = pkgs.stdenv.mkDerivation {
-        name = "blog";
-        inherit src;
-        buildInputs = with pkgs; [ruby jekyll bundler rubyPackages.jekyll-sitemap];
-        buildPhase = ''
-          jekyll build
-        '';
-        installPhase = ''
-          mkdir -p $out
-          cp -r _site $out/site
-        '';
+      packages = {
+        default = self.packages.${system}.build;
+        build = pkgs.stdenv.mkDerivation {
+          name = "build-site";
+          inherit (gem) src;
+          buildInputs = gem.deps;
+          buildPhase = ''
+            bundler exec jekyll build
+          '';
+          installPhase = ''
+            mkdir -p $out
+            cp -r _site $out/site
+          '';
+        };
+        launch = pkgs.writeShellApplication {
+          name = "launch-site";
+          runtimeInputs = gem.deps;
+          text = ''
+            bundler exec jekyll serve -w
+          '';
+        };
       };
     });
 }

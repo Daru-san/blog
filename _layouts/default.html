@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark-poole">
   {% include head.html %}
 
@@ -16,16 +16,17 @@
         </h3>
       </header>
 
-      <main>
-        {{ content }}
-      </main>
+      <main>{{ content }}</main>
 
       <footer class="footer">
         <small>
           &copy;
           <time datetime="{{ site.time | date_to_xmlschema }}"
             >{{ site.time | date: '%Y' }}</time
-          >. All rights reserved.
+          >
+          Daru-san. Source:
+          <a href="https://github.com/Daru-san/blog">GitHub repo</a>. Made with
+          GitHub pages and Jekyll
         </small>
       </footer>
     </div>
@@ -49,7 +50,7 @@
         document,
         "script",
         "https://www.google-analytics.com/analytics.js",
-        "ga"
+        "ga",
       );
       ga("create", "{{ site.ga_analytics }}", "auto");
       ga("send", "pageview");

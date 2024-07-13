@@ -1,7 +1,7 @@
 title: 'Sandaru'
 description: 'My personal blog'
-baseurl: '/blog'
-url: 'https://daru-san.github.io/blog'
+baseurl: ''
+url: 'https://sandaru.vercel.app'
 version: 1.0.0
 # Google Analytics
 google_analytics: UA—XXXXXXXX-X
@@ -24,9 +24,9 @@ paginate: 5
 paginate_path: '/baseurl/page:num/'
 nav:
   - title: Blog
-    url: /blog/archive
+    url: /archive
   - title: About
-    url: /blog/about
+    url: /about
 exclude:
   - .editorconfig
   - .git

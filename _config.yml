@@ -19,14 +19,14 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
-permalink: /:year-:month-:day/:title
+permalink: /:year-:month-:day/:title.html
 paginate: 5
 paginate_path: '/baseurl/page:num/'
 nav:
   - title: Blog
-    url: /archive
+    url: /archive.html
   - title: About
-    url: /about
+    url: /about.html
 exclude:
   - .editorconfig
   - .git

@@ -11,11 +11,13 @@ Since we are using Nix, I would recommend creating
 a dev shell for Hugo, but you do not have to. A system-wide
 installation would work just as well.
 
+### Nix flake
+
 ```bash
 cd my-site
 nix flake init .
 
-# Git aswell
+# Git aswell(optional)
 git init .
 git remote set-url origin git@YOUR-REPO
 ```
@@ -52,8 +54,16 @@ In `flake.nix`
       }
     );
 }
-
 ```
+
+Then, of course, enter your dev shell.
+
+```bash
+nix develop
+```
+
+### Hugo site
+
 Create a project directory using Hugo.
 
 ```bash
@@ -67,6 +77,7 @@ are also options for configuration.
 cd src/
 
 # Choose your preferred file format
+# You will have to convert the original file, which is in the toml format
 vi hugo.json
 vi hugo.toml
 vi hugo.yml

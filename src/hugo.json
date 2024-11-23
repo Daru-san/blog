@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/hugo.json",
+  "baseURL": "https://example.org/",
+  "languageCode": "en-us",
+  "title": "My New Hugo Site"
+}
